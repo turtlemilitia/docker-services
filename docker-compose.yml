@@ -21,6 +21,8 @@ services:
         - '-p${DB_PASSWORD}'
       retries: 3
       timeout: 5s
+    networks:
+      - mysql
   redis:
     image: 'redis:alpine'
     ports:
@@ -34,3 +36,10 @@ services:
         - ping
       retries: 3
       timeout: 5s
+    networks:
+      - redis
+networks:
+  mysql:
+    driver: bridge
+  redis:
+    driver: bridge
