@@ -1,4 +1,3 @@
-version: '3.1'
 services:
   mysql:
     image: 'mysql/mysql-server:8.0'
@@ -40,6 +39,8 @@ services:
       - redis
 networks:
   mysql:
+    name: services_mysql
     driver: bridge
   redis:
+    name: services_redis
     driver: bridge
