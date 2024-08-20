@@ -11,7 +11,7 @@ services:
       MYSQL_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
-      - '${DATA_FOLDER}/mysql:/var/lib/mysql'
+      - '${DATA_FOLDER:-~/.docker}/mysql:/var/lib/mysql'
     healthcheck:
       test:
         - CMD
@@ -27,7 +27,7 @@ services:
     expose:
       - '6379'
     volumes:
-      - '${DATA_FOLDER}/redis:/data'
+      - '${DATA_FOLDER:-~/.docker}/redis:/data'
     healthcheck:
       test:
         - CMD
